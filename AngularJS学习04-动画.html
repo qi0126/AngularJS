@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<script src="angular.min.js"></script>
+<script src="angular-animate.min.js"></script>
+<style>
+	@keyframes myChange {
+			from{
+				height: 100px;
+			}to{
+				height: 0;
+			}
+	}
+	div{
+		height: 100px;
+		background-color: lightblue;
+	}
+	div.ng-hide{
+		animation: 0.5s myChange;
+	}
+</style>
+</head>
+
+	<body ng-app="ngAnimate">
+		隐藏DIV:<input type="checkbox" ng-model="myCheck">
+		<div ng-hide="myCheck">
+		</div>
+
+	</body>
+</html>

@@ -1,0 +1,46 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<script src="angular.min.js"></script>
+</head>
+
+<body>
+  <div ng-app="myApp" ng-controller="myCtrl">
+    <button ng-click="count = count + 1">点我</button>
+    <p>{{count}}</p>
+    <hr>
+
+    <button ng-click="toggle()">隐藏/显示</button>
+
+    <div ng-hide="myVar">
+      名：<input type='text' ng-model='firstName'><br/>
+      姓：<input type='text' ng-model='lastName'><br/><br/>
+      姓名：{{firstName +' '+lastName}}<br/>
+      <hr/>
+      名：<input type='text' ng-model='person.firstName'><br/>
+      姓：<input type='text' ng-model='person.lastName'><br/><br/>
+      姓名：{{person.firstName+' '+person.lastName}}
+    </div>
+
+  </div>
+
+  <script>
+  var app = angular.module('myApp', []);
+  app.controller('myCtrl', function($scope) {
+    $scope.count = 0;
+    $scope.firstName = "Iverson";
+    $scope.lastName = "Minghua";
+    $scope.person ={
+      firstName:"Johnson",
+      lastName:"Doe"
+    }
+    $scope.myVar = false;
+    $scope.toggle = function(){
+      $scope.myVar = !$scope.myVar;
+    }
+  });
+  </script>
+
+</body>
+</html>

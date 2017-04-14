@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html ng-app="">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<script src="angular.min.js"></script>
+</head>
+
+<body style="padding:10px;">
+	<div ng-app="">
+		<h2>
+			我的第一个表达式：{{5*912122| currency}}<br/>
+			<div ng-init="quantity=156484;cost=5">
+				总价：{{quantity * cost}}<br/>
+				总价：<span ng-bind="quantity * cost"></span>
+			</div>
+			<div ng-init='firstName="iverson";lastName="qiminghua"'>
+				姓名:<span ng-bind="firstName + ' ' + lastName"></span><br/>
+				姓名：{{firstName+' '+lastName}}
+			</div>
+			<div ng-init="person={firstName:'iverson',lastName:'qiminghua'}">
+				名为{{person.firstName}}
+				姓为<span ng-bind="person.lastName"></span>
+			</div>
+			<div ng-init="points=[1,15,31,85,84]">
+				第三个值为{{points[2]}}
+				第四个值为<span ng-bind="points[3]"></span>
+			</div>
+		</h2>
+	</div>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<script src="angular.min.js"></script>
+</head>
+
+	<body>
+		<div ng-app="" ng-init="names=[{name:'Qi',country:'BeiJing'},{name:'Ming',country:'DongGuan'},{name:'Hua',country:'ShenZhen'}]">
+				<p>循环对象:</p>
+				<ul>
+						<li ng-repeat="x in names">
+							{{ x.name + ',' + x.country }}
+						</li>
+				</ul>
+	  </div>
+	</body>
+</html>

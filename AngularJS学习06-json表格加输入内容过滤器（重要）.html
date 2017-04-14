@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<script src="angular.min.js"></script>
+<script src="jquery-1.10.2.min.js"></script>
+<style>
+	table,th,td{
+		bodrer:1px solid grey;
+		border-collapse:collapse;
+		padding:5px;
+	}
+	table tr:nth-child(odd){
+		background-color: #f1f1f1;
+	}
+	table tr:nth-child(even){
+		background-color: #ffffff;
+	}
+</style>
+</head>
+	<body>
+		<div ng-app="myApp" ng-controller="customersCtrl">
+			<p><input type="text" ng-model="test"></p>
+			<select ng-model="selectedName" ng-options=" x for x in names1"></select>
+
+			</select>
+				<table border="1">
+						<tr ng-repeat="x in names| filter:test | orderBy:'city'">
+								<td>{{ $index+1 }}</td>
+								<td>{{ x.Name }}</td>
+								<td>{{ x.City }}</td>
+								<td>{{ x.Country }}</td>
+						</tr>
+				</table>
+		</div>
+		<script>
+				var app = angular.module('myApp',[]);
+				app.controller('customersCtrl',function($scope,$http){
+						$http.get("jsontest.json").success(function(response){
+							//列表过滤器JS
+							$scope.names = response.records;
+
+							//select读取json列表
+							var arr = [];
+							$.each(response.records, function(i, item){
+								 arr.push(item.Name);
+							});
+							console.log(arr);
+							$scope.names1 = arr;
+
+
+						})
+				});
+		</script>
+
+	</body>
+</html>

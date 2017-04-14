@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<script src="angular.min.js"></script>
+
+</head>
+
+	<body>
+			<div ng-app="myApp" ng-controller="myCtrl">
+				<button ng-click="count=count+1">点我</button>
+				<p>{{count}}</p>
+				<button ng-click="toggle()">隐藏/显示</button>
+				<p ng-show="myVar">
+						名:<input type="text" ng-model="person.firstName"><br/>
+						姓:<input type="text" ng-model="person.lastName"><br/>
+						姓名:{{person.firstName+" "+person.lastName}}
+				</p>
+			</div>
+
+			<script>
+					var app=angular.module('myApp',[]);
+					app.controller('myCtrl',function($scope){
+						$scope.count = 0;
+						$scope.person={
+							firstName:'Qi',
+							lastName:'MingHua'
+						};
+						$scope.myVar=true;
+						$scope.toggle = function(){
+							$scope.myVar = !$scope.myVar;
+						}
+
+					});
+			</script>
+	</body>
+</html>

@@ -1,0 +1,31 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<script src="angular.min.js"></script>
+</head>
+
+<body>
+
+  <div ng-app="myApp" ng-controller="myCtrl">
+    <p>{{x1}}</p>
+    <p>{{x2}}</p>
+    <p>{{x3}}</p>
+    <p>是不是数字{{x4}}</p>
+    <p>是不是字符{{x5}}</p>
+  </div>
+
+
+  <script>
+  var app = angular.module("myApp", []);
+  app.controller("myCtrl", function($scope) {
+    $scope.x1 = "IVERSON minghua";
+    $scope.x2 = angular.lowercase($scope.x1);
+    $scope.x3 = angular.uppercase($scope.x1);
+    $scope.x4 = angular.isNumber($scope.x1);
+    $scope.x5 = angular.isString($scope.x1);
+  });
+  </script>
+
+</body>
+</html>

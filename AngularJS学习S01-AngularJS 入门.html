@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html ng-app="">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<script src="angular.min.js"></script>
+</head>
+
+<body style="padding:10px;">
+	<fieldset>
+			<legend>第一个例子</legend>
+			<b>计算</b>
+			<br/>
+			<br/>
+			<br/>
+			<table>
+					<tr>
+							<td>单价：(美元)</td>
+							<td>数量</td>
+					</tr>
+					<tr>
+							<td><input type="number" ng-model="qty" required></td>
+							<td><input type="number" ng-model="cost"required></td>
+					</tr>
+			</table>
+			<b>金额</b>{{qty * cost | currency}}
+	</fieldset>
+	<fieldset>
+		<b>改变model控制dom:</b>
+		<br><br>
+		<legend>第二个例子:</legend>
+		<input type="text" ng-model="data.msg">
+		<div class="{{data.msg}}">
+			我是一个{{data.msg}}
+		</div>
+	</fieldset>
+
+	<div ng-app="">
+		<p>名字：<input type="text" ng-model="name"></p>
+		<h1>Hello {{name}}</h1>
+	</div>
+
+	<div ng-app="" ng-init="firstName='qiminghua'">
+		<h2>姓名为<span ng-bind="firstName"></span></h2>
+	</div>
+
+	<div data-ng-app="" data-ng-init="firstdataName='data-qiminghua'">
+		<h2>姓名为<span data-ng-bind="firstdataName"></span></h2>
+	</div>
+
+	<div ng-app="">
+		<h3>我的第一个表达式:{{5*5|currency}}</h3>
+	</div>
+
+	<div ng-app="myjs" ng-controlloer="myCtrl">
+		名：<input type="text" ng-model="firstName"><br/>
+		姓：<input type="text" ng-model="lastName"><br/>
+		<br/>
+		<h3>姓名：{{firstName + " " + lastName}}</h3>
+	</div>
+	<script>
+	 var app = angular.module('myjs',[]);
+	 app.controller('myCtrl',function($scope){
+		 $scope.firstName = "Iverson";
+		 $scope.lastName="John";
+	 });
+	</script>
+
+
+<div ng-app="myApp" ng-controller="myCtrl">
+
+名: <input type="text" ng-model="firstName"><br>
+姓: <input type="text" ng-model="lastName"><br>
+<br>
+姓名: {{firstName + " " + lastName}}
+
+</div>
+
+<script>
+var app = angular.module('myApp', []);
+app.controller('myCtrl', function($scope) {
+    $scope.firstName= "John";
+    $scope.lastName= "Doe";
+});
+</script>
+</body>
+</html>

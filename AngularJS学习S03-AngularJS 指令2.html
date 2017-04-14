@@ -1,0 +1,42 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<script src="angular.min.js"></script>
+</head>
+
+<body>
+
+<div ng-app="myApp">
+	<runoob-directive></runoob-directive>
+	<div runoob-directive></div>
+	<script>
+	var app = angular.module("myApp", []);
+	app.directive("runoobDirective", function() {
+	    return {
+				// restrict:"C",
+	        template : "<h1>自定义指令!1111111111111</h1>"
+	    };
+	});
+	</script>
+</div>
+<hr/>
+<div ng-app="myApp1">
+	<runoob-directive></runoob-directive>
+	<div class="runoob-Directive"></div>
+	<div class="runoob-Directive"></div>
+	<div runoob-directive></div>
+	<div>注意： 你必须设置 restrict 的值为 "C" 才能通过类名来调用指令。</div>
+	<script>
+		var app1 = angular.module("myApp1", []);
+		app1.directive("runoobDirective", function() {
+		    return {
+						restrict:"C",
+		        template : "<h1>自定义指令!222222222222222</h1>"
+		    };
+		});
+	</script>
+</div>
+
+</script>
+</html>

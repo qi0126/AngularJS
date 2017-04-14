@@ -1,0 +1,32 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<script src="angular.min.js"></script>
+</head>
+
+<body>
+  <div ng-app="myApp001" ng-controller="myCtrl">
+    <p>当前页面的url:</p>
+    <h3>{{myUrl}}</h3>
+    <h1>{{myHeader}}</h1>
+    <h1>{{theTime}}</h1>
+  </div>
+  <p>该实例使用了内建的 $location 服务获取当前页面的 URL。</p>
+  <script>
+    var app = angular.module('myApp001',[]);
+    app.controller('myCtrl',function($scope,$location,$timeout,$interval){
+      $scope.myUrl = $location.absUrl();
+      $scope.myHeader = "Hello World!";
+      $scope.theTime = new Date().toLocaleTimeString();
+      $timeout(function(){
+        $scope.myHeader = "2秒后变这样！";
+      },2000);
+      $interval(function(){
+        $scope.theTime = new Date().toLocaleTimeString();
+      },1000);
+
+    });
+  </script>
+</body>
+</html>

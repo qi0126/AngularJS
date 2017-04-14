@@ -1,0 +1,33 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<script src="angular.min.js"></script>
+</head>
+
+<body>
+    <!-- <div ng-app="myApp" ng-controller="myCtrl">
+      名字：<input ng-model="name"/>
+      <h1>你输入了{{name}}</h1>
+    </div>
+    <script>
+      var app = angular.module('myApp',[]);
+      app.controller('myCtrl',function($scope){
+        $scope.name = "Iverson qi";
+      });
+    </script>
+    <div>使用ng-model指令来绑定输入域的值到控制器的属性</div> -->
+    <hr/>
+    <form ng-app='' name="myForm">
+      Email:<input type="email" name="myAddress" ng-model="text">
+      <span ng-show="myForm.myAddress.$error.email">不是一个合法的邮箱地址</span>
+      <h1>状态</h1>
+      <div>Valid:{{myForm.myAddress.$valid}}(如果输入的值是合法的则为true)</div>
+      <div>Dirty:{{myForm.myAddress.$dirty}}(如果值改变则为true)</div>
+      <div>Touched:{{myForm.myAddress.$touched}}(如果通过触屏点击则为true)</div>
+    </form>
+    <div>在输入框输入你的邮箱地址，如果不是一个合法的邮箱地址，会弹出提示信息。</div>
+    <hr/>
+
+</body>
+</html>

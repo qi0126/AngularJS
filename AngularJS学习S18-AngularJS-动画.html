@@ -1,0 +1,49 @@
+<html>
+<head>
+  <meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style>
+  div{
+    transition: all linear 0.5s;
+    background-color: lightblue;
+    height: 100px;
+    width:100%;
+    position: relative;
+    top:0;
+    left:0;
+  }
+
+  .ng-hide{
+    height: 0;
+    width:0;
+    background-color: transparent;
+    top:-200px;
+    left:200px;
+  }
+</style>
+<script src="angular.min.js"></script>
+<script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular-animate.min.js"></script>
+</head>
+
+<body>
+
+  <!-- <div ng-app="myApp" ng-controller="myCtrl">
+    <div ng-include="'AngularJS学习S16-AngularJS-bootstrap.html'"></div>
+  </div> -->
+  <span ng-app="ngAnimate">
+    <h1>
+      隐藏DIV:<input type="checkbox" ng-model="myCheck">
+    </h1>
+    <div ng-hide="myCheck"></div>
+  </span>
+
+
+  <script>
+  var app = angular.module("myApp", []);
+  app.controller("myCtrl", function($scope) {
+  });
+  </script>
+
+</body>
+</html>

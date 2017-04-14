@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<script src="angular.min.js"></script>
+<script src="angular-animate.min.js"></script>
+<style>
+
+	div{
+		height: 100px;
+		background-color: lightblue;
+	}
+
+</style>
+</head>
+
+	<body>
+		<div ng-app="myApp" ng-controller="namesCtrl">
+				<ul>
+						<li ng-repeat="x in names">
+								{{x.name + ',' + x.city++}}
+						</li>
+				</ul>
+		</div>
+		<script src="names.js"></script>
+	</body>
+</html>

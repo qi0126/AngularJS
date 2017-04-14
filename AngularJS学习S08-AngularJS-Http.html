@@ -1,0 +1,70 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<script src="angular.min.js"></script>
+</head>
+
+<body>
+  <div ng-app="myApp001" ng-controller="myCtrl">
+    <ul>
+      <li ng-repeat="x in names">
+        {{x.Name+','+x.City+','+x.Country}}
+      </li>
+    </ul>
+    <select ng-init="selectedName =namess[0]" ng-model="selectedName" ng-options="x for x in namess">
+    </select>
+    <select>
+      <option ng-repeat = "x in namess">{{x}}</option>
+    </select>
+    <select ng-model="selectedSite1">
+      <option ng-repeat="x in nameaddurl" value="{{x.url}}">{{x.site}}</option>
+    </select>
+    <h2>你选择的是:{{selectedSite1}}</h2>
+    <hr/>
+
+
+    <br/>
+    <select ng-model="selectedSite2" ng-options="x.site for x in nameaddurl">
+    </select>
+    <h2>你选择的是：{{selectedSite2.site}}</h2>
+    <p>网址为:{{selectedSite2.url}}</p>
+
+    <hr/>
+    <select ng-model="selectedSite3" ng-options="x for (x,y) in namelist">
+    </select>
+    <h2>你选择的值是{{selectedSite3}}</h2>
+    <hr/>
+
+    <select ng-model="selectedCar" ng-options="y.brand for (x,y) in carlist">
+    </select>
+    <p>你的选择是：{{selectedCar.brand}}</p>
+    <p>型号是：{{selectedCar.model}}</p>
+    <p>色彩是：{{selectedCar.color}}</p>
+
+
+  </div>
+  <script>
+    var app = angular.module('myApp001',[]);
+    app.controller('myCtrl',function($scope,$http){
+      $scope.namess = ["Google","Runoob","Taobao"];
+      $scope.nameaddurl =[
+        {site:"Iverson",url:"http://www.google.com"},
+        {site:"qiminghua",url:"http://www.qiminghua.com"},
+        {site:"minghua",url:"http://www.taobao.com"},
+      ];
+      $scope.namelist={
+        site01:"iverson",
+        site02:"minghua",
+        site03:"taobao"
+      };
+      $scope.carlist = {
+        car01:{brand:"Ford",model:"Mustang",color:"red"},
+        car02:{brand:"Honye",model:"fit",color:"white"},
+        car03:{brand:"Volvo",model:"XC90",color:"black"}
+      };
+      $http.get("jsontest.json").success(function(response){$scope.names = response.records;});
+    });
+  </script>
+</body>
+</html>
